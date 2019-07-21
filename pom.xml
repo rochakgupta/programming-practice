@@ -1,0 +1,40 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>rochakgupta</groupId>
+    <artifactId>programming-practice</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0</version>
+    <name>Programming Practice</name>
+    <url>https://github.com/rochakgupta/programming-practice</url>
+
+    <properties>
+        <javac.version>1.8</javac.version>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <junit.version>4.4</junit.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>${javac.version}</source>
+                    <target>${javac.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
