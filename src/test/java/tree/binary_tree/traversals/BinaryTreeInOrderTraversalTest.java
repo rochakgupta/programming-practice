@@ -1,9 +1,9 @@
 package tree.binary_tree.traversals;
 
+import common.BinaryTreeNode;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import common.BinaryTreeNode;
 
 import java.util.Arrays;
 import java.util.List;
@@ -15,14 +15,14 @@ public class BinaryTreeInOrderTraversalTest {
     @BeforeClass
     public static void initialize() {
         root = BinaryTreeNode.with(1)
-                       .left(BinaryTreeNode.with(2)
-                                     .left(BinaryTreeNode.with(12)
-                                                   .left(BinaryTreeNode.with(13))))
-                       .right(BinaryTreeNode.with(3)
-                                      .left(BinaryTreeNode.with(4)
-                                                    .left(BinaryTreeNode.with(6)))
-                                      .right(BinaryTreeNode.with(5)
-                                                     .left(BinaryTreeNode.with(7))));
+                             .left(BinaryTreeNode.with(2)
+                                                 .left(BinaryTreeNode.with(12)
+                                                                     .left(BinaryTreeNode.with(13))))
+                             .right(BinaryTreeNode.with(3)
+                                                  .left(BinaryTreeNode.with(4)
+                                                                      .left(BinaryTreeNode.with(6)))
+                                                  .right(BinaryTreeNode.with(5)
+                                                                       .left(BinaryTreeNode.with(7))));
     }
 
     @Test
