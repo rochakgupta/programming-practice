@@ -1,21 +1,21 @@
 package common;
 
-public class Pair<K, V> {
+public class Pair<F, S> {
 
-    private K key;
+    private F first;
 
-    private V value;
+    private S second;
 
-    public Pair(K key, V value) {
-        this.key = key;
-        this.value = value;
+    public Pair(F first, S second) {
+        this.first = first;
+        this.second = second;
     }
 
-    public K getKey() {
-        return key;
+    public F getFirst() {
+        return first;
     }
 
-    public V getValue() {
-        return value;
+    public S getSecond() {
+        return second;
     }
 }

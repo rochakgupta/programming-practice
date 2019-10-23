@@ -9,9 +9,9 @@ class LeastRecentlyUsedCache {
 
     private int capacity;
 
-    private Map<Integer, LinkedListNode> map;
+    private Map<Integer, ListNode> map;
 
-    private LinkedListNode head;
+    private ListNode head;
 
     public LeastRecentlyUsedCache(int capacity) {
         this.capacity = capacity;
@@ -20,7 +20,7 @@ class LeastRecentlyUsedCache {
 
     public int get(int key) {
         int value = -1;
-        LinkedListNode node = map.get(key);
+        ListNode node = map.get(key);
         if (node != null) {
             value = node.getValue();
             moveToFront(node);
@@ -28,14 +28,14 @@ class LeastRecentlyUsedCache {
         return value;
     }
 
-    private void moveToFront(LinkedListNode node) {
+    private void moveToFront(ListNode node) {
         if (node != head) {
             link(node.getPrev(), node.getNext());
             makeHead(node);
         }
     }
 
-    private void link(LinkedListNode prev, LinkedListNode next) {
+    private void link(ListNode prev, ListNode next) {
         if (prev != null) {
             prev.setNext(next);
         }
@@ -44,7 +44,7 @@ class LeastRecentlyUsedCache {
         }
     }
 
-    private void makeHead(LinkedListNode node) {
+    private void makeHead(ListNode node) {
         if (head == null) {
             link(node, node);
         } else {
@@ -55,12 +55,12 @@ class LeastRecentlyUsedCache {
     }
 
     public void put(int key, int value) {
-        LinkedListNode node = map.get(key);
+        ListNode node = map.get(key);
         if (node == null) {
             if (map.size() == capacity) {
                 removeLast();
             }
-            node = LinkedListNode.with(key, value);
+            node = new ListNode(key, value);
             map.put(key, node);
             makeHead(node);
         } else {
@@ -70,7 +70,7 @@ class LeastRecentlyUsedCache {
     }
 
     private void removeLast() {
-        LinkedListNode tail = head.getPrev();
+        ListNode tail = head.getPrev();
         map.remove(tail.getKey());
         if (map.isEmpty()) {
             head = null;
@@ -82,7 +82,7 @@ class LeastRecentlyUsedCache {
     public List<Pair<Integer, Integer>> getCache() {
         List<Pair<Integer, Integer>> cache = new ArrayList<>();
         if (head != null) {
-            LinkedListNode curr = head;
+            ListNode curr = head;
             do {
                 cache.add(new Pair<>(curr.getKey(), curr.getValue()));
                 curr = curr.getNext();
@@ -91,31 +91,23 @@ class LeastRecentlyUsedCache {
         return cache;
     }
 
-    public static class LinkedListNode {
+    public static class ListNode {
+
         private int key;
 
         private int value;
 
-        private LinkedListNode prev;
+        private ListNode prev;
 
-        private LinkedListNode next;
+        private ListNode next;
 
-        private LinkedListNode() {
-        }
-
-        public static LinkedListNode with(int key, int value) {
-            LinkedListNode node = new LinkedListNode();
-            node.setKey(key);
-            node.setValue(value);
-            return node;
+        ListNode(int key, int value) {
+            this.key = key;
+            this.value = value;
         }
 
         public int getKey() {
             return key;
-        }
-
-        public void setKey(int key) {
-            this.key = key;
         }
 
         public int getValue() {
@@ -126,19 +118,19 @@ class LeastRecentlyUsedCache {
             this.value = value;
         }
 
-        public LinkedListNode getPrev() {
+        public ListNode getPrev() {
             return prev;
         }
 
-        public void setPrev(LinkedListNode prev) {
+        public void setPrev(ListNode prev) {
             this.prev = prev;
         }
 
-        public LinkedListNode getNext() {
+        public ListNode getNext() {
             return next;
         }
 
-        public void setNext(LinkedListNode next) {
+        public void setNext(ListNode next) {
             this.next = next;
         }
     }

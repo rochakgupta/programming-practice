@@ -1,15 +1,15 @@
 package tree.binary_tree;
 
-import common.BinaryTreeNode;
+import common.TreeNode;
 
 public class BinaryTreeHeight {
 
-    public static int solve(BinaryTreeNode node) {
+    public static int solve(TreeNode node) {
         if (node == null) {
             return 0;
         }
-        BinaryTreeNode left = node.getLeft();
-        BinaryTreeNode right = node.getRight();
+        TreeNode left = node.getLeft();
+        TreeNode right = node.getRight();
         if (left == null && right == null) {
             return 0;
         }

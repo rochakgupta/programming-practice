@@ -1,6 +1,6 @@
 package tree.binary_tree.traversals;
 
-import common.BinaryTreeNode;
+import common.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.Stack;
 
 public class BinaryTreeInOrderTraversal {
 
-    public static List<Integer> solveRecursively(BinaryTreeNode root) {
+    public static List<Integer> solveRecursively(TreeNode root) {
         List<Integer> inOrderTraversal = new ArrayList<>();
         if (root != null) {
             List<Integer> left = solveRecursively(root.getLeft());
@@ -20,10 +20,10 @@ public class BinaryTreeInOrderTraversal {
         return inOrderTraversal;
     }
 
-    public static List<Integer> solveIteratively(BinaryTreeNode root) {
+    public static List<Integer> solveIteratively(TreeNode root) {
         List<Integer> inOrderTraversal = new ArrayList<>();
-        Stack<BinaryTreeNode> stack = new Stack<>();
-        BinaryTreeNode currentNode = root;
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode currentNode = root;
         while (currentNode != null || !stack.isEmpty()) {
             while (currentNode != null) {
                 stack.push(currentNode);

@@ -1,6 +1,6 @@
 package tree.binary_tree.traversals;
 
-import common.BinaryTreeNode;
+import common.TreeNode;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -10,19 +10,19 @@ import java.util.List;
 
 public class BinaryTreeInOrderTraversalTest {
 
-    private static BinaryTreeNode root;
+    private static TreeNode root;
 
     @BeforeClass
     public static void initialize() {
-        root = BinaryTreeNode.with(1)
-                             .left(BinaryTreeNode.with(2)
-                                                 .left(BinaryTreeNode.with(12)
-                                                                     .left(BinaryTreeNode.with(13))))
-                             .right(BinaryTreeNode.with(3)
-                                                  .left(BinaryTreeNode.with(4)
-                                                                      .left(BinaryTreeNode.with(6)))
-                                                  .right(BinaryTreeNode.with(5)
-                                                                       .left(BinaryTreeNode.with(7))));
+        root = TreeNode.data(1)
+                       .left(TreeNode.data(2)
+                                     .left(TreeNode.data(12)
+                                                   .left(TreeNode.data(13))))
+                       .right(TreeNode.data(3)
+                                      .left(TreeNode.data(4)
+                                                    .left(TreeNode.data(6)))
+                                      .right(TreeNode.data(5)
+                                                     .left(TreeNode.data(7))));
     }
 
     @Test

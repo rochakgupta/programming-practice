@@ -1,6 +1,6 @@
 package tree.binary_tree.traversals;
 
-import common.BinaryTreeNode;
+import common.TreeNode;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -13,15 +13,15 @@ public class BinaryTreeZigzagLevelOrderTraversalTest {
 
     @Test
     public void test() {
-        BinaryTreeNode root = BinaryTreeNode.with(1)
-                                            .left(BinaryTreeNode.with(2)
-                                                                .left(BinaryTreeNode.with(12)
-                                                                                    .left(BinaryTreeNode.with(13))))
-                                            .right(BinaryTreeNode.with(3)
-                                                                 .left(BinaryTreeNode.with(4)
-                                                                                     .left(BinaryTreeNode.with(6)))
-                                                                 .right(BinaryTreeNode.with(5)
-                                                                                      .left(BinaryTreeNode.with(7))));
+        TreeNode root = TreeNode.data(1)
+                                .left(TreeNode.data(2)
+                                              .left(TreeNode.data(12)
+                                                            .left(TreeNode.data(13))))
+                                .right(TreeNode.data(3)
+                                               .left(TreeNode.data(4)
+                                                             .left(TreeNode.data(6)))
+                                               .right(TreeNode.data(5)
+                                                              .left(TreeNode.data(7))));
         List<List<Integer>> expected = new ArrayList<>();
         expected.add(Collections.singletonList(1));
         expected.add(Arrays.asList(3, 2));

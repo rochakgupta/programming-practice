@@ -1,30 +1,30 @@
 package tree.binary_tree;
 
-import common.BinaryTreeNode;
 import common.Pair;
+import common.TreeNode;
 
 public class BinaryTreeDiameter {
 
-    public static int solve(BinaryTreeNode root) {
+    public static int solve(TreeNode root) {
         Pair<Integer, Integer> pair = helper(root);
-        return pair.getValue();
+        return pair.getSecond();
     }
 
-    private static Pair<Integer, Integer> helper(BinaryTreeNode node) {
+    private static Pair<Integer, Integer> helper(TreeNode node) {
         if (node == null) {
             return new Pair<>(0, 0);
         }
-        BinaryTreeNode left = node.getLeft();
-        BinaryTreeNode right = node.getRight();
+        TreeNode left = node.getLeft();
+        TreeNode right = node.getRight();
         if (left == null && right == null) {
             return new Pair<>(0, 0);
         }
         Pair<Integer, Integer> leftPair = helper(left);
         Pair<Integer, Integer> rightPair = helper(right);
-        int leftHeight = leftPair.getKey();
-        int leftDiameter = leftPair.getValue();
-        int rightHeight = rightPair.getKey();
-        int rightDiameter = rightPair.getValue();
+        int leftHeight = leftPair.getFirst();
+        int leftDiameter = leftPair.getSecond();
+        int rightHeight = rightPair.getFirst();
+        int rightDiameter = rightPair.getSecond();
         int rootHeight = 1 + Math.max(leftHeight, rightHeight);
         int rootDiameter = 0;
         if (left != null) {
