@@ -3,19 +3,19 @@ package tree.binary_tree;
 import common.Pair;
 import common.TreeNode;
 
-public class BinaryTreeDiameter {
+public class BinaryTreeDiameter<T> {
 
-    public static int solve(TreeNode root) {
+    public int solve(TreeNode<T> root) {
         Pair<Integer, Integer> pair = helper(root);
         return pair.getSecond();
     }
 
-    private static Pair<Integer, Integer> helper(TreeNode node) {
+    private Pair<Integer, Integer> helper(TreeNode<T> node) {
         if (node == null) {
             return new Pair<>(0, 0);
         }
-        TreeNode left = node.getLeft();
-        TreeNode right = node.getRight();
+        TreeNode<T> left = node.getLeft();
+        TreeNode<T> right = node.getRight();
         if (left == null && right == null) {
             return new Pair<>(0, 0);
         }

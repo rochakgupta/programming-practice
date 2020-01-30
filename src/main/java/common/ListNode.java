@@ -1,34 +1,34 @@
 package common;
 
-public class ListNode {
+public class ListNode<T> {
 
-    private Integer data;
+    private T data;
 
-    private ListNode prev;
+    private ListNode<T> prev;
 
-    private ListNode next;
+    private ListNode<T> next;
 
-    private ListNode(Integer data) {
+    private ListNode(T data) {
         this.data = data;
     }
 
-    public Integer getData() {
+    public T getData() {
         return data;
     }
 
-    public ListNode getPrev() {
+    public ListNode<T> getPrev() {
         return prev;
     }
 
-    public void setPrev(ListNode prev) {
+    public void setPrev(ListNode<T> prev) {
         this.prev = prev;
     }
 
-    public ListNode getNext() {
+    public ListNode<T> getNext() {
         return next;
     }
 
-    public void setNext(ListNode next) {
+    public void setNext(ListNode<T> next) {
         this.next = next;
     }
 }

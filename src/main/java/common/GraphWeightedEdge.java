@@ -1,10 +1,10 @@
 package common;
 
-public class GraphWeightedEdge<W> extends GraphEdge {
+public class GraphWeightedEdge<T, W> extends GraphEdge<T> {
 
     private W weight;
 
-    GraphWeightedEdge(GraphNode src, GraphNode dest, W weight) {
+    GraphWeightedEdge(T src, T dest, W weight) {
         super(src, dest);
         this.weight = weight;
     }

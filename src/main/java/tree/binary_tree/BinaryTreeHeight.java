@@ -2,14 +2,14 @@ package tree.binary_tree;
 
 import common.TreeNode;
 
-public class BinaryTreeHeight {
+public class BinaryTreeHeight<T> {
 
-    public static int solve(TreeNode node) {
+    public int solve(TreeNode<T> node) {
         if (node == null) {
             return 0;
         }
-        TreeNode left = node.getLeft();
-        TreeNode right = node.getRight();
+        TreeNode<T> left = node.getLeft();
+        TreeNode<T> right = node.getRight();
         if (left == null && right == null) {
             return 0;
         }

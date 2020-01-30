@@ -4,26 +4,26 @@ import common.TreeNode;
 
 import java.util.*;
 
-public class BinaryTreeLevelOrderTraversal {
+public class BinaryTreeLevelOrderTraversal<T> {
 
-    public static List<List<Integer>> solve(TreeNode root) {
+    public List<List<T>> solve(TreeNode<T> root) {
         if (root == null) {
             return Collections.emptyList();
         }
-        List<List<Integer>> levelOrderTraversal = new ArrayList<>();
-        Queue<TreeNode> queue = new LinkedList<>();
+        List<List<T>> levelOrderTraversal = new ArrayList<>();
+        Queue<TreeNode<T>> queue = new LinkedList<>();
         queue.add(root);
         while (!queue.isEmpty()) {
-            List<Integer> nodesInCurrentLevel = new ArrayList<>();
+            List<T> nodesInCurrentLevel = new ArrayList<>();
             int numberOfNodesInCurrentLevel = queue.size();
             while (numberOfNodesInCurrentLevel > 0) {
-                TreeNode node = queue.remove();
+                TreeNode<T> node = queue.remove();
                 nodesInCurrentLevel.add(node.getData());
-                TreeNode left = node.getLeft();
+                TreeNode<T> left = node.getLeft();
                 if (left != null) {
                     queue.add(left);
                 }
-                TreeNode right = node.getRight();
+                TreeNode<T> right = node.getRight();
                 if (right != null) {
                     queue.add(right);
                 }

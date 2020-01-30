@@ -1,21 +1,21 @@
 package common;
 
-public class GraphEdge {
+public class GraphEdge<T> {
 
-    protected GraphNode src;
+    protected T src;
 
-    protected GraphNode dest;
+    protected T dest;
 
-    GraphEdge(GraphNode src, GraphNode dest) {
+    GraphEdge(T src, T dest) {
         this.src = src;
         this.dest = dest;
     }
 
-    protected GraphNode getSrc() {
+    protected T getSrc() {
         return src;
     }
 
-    protected GraphNode getDest() {
+    protected T getDest() {
         return dest;
     }
 }

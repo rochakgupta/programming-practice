@@ -1,38 +1,34 @@
 package common;
 
-public class TreeNode {
+public class TreeNode<T> {
 
-    private Integer data;
+    private T data;
 
-    private TreeNode left;
+    private TreeNode<T> left;
 
-    private TreeNode right;
+    private TreeNode<T> right;
 
-    public static TreeNode data(Integer data) {
-        TreeNode node = new TreeNode();
-        node.data = data;
-        return node;
+    public TreeNode(T data) {
+        this.data = data;
     }
 
-    public TreeNode left(TreeNode left) {
+    public void setLeft(TreeNode<T> left) {
         this.left = left;
-        return this;
     }
 
-    public TreeNode right(TreeNode right) {
+    public void setRight(TreeNode<T> right) {
         this.right = right;
-        return this;
     }
 
-    public Integer getData() {
+    public T getData() {
         return data;
     }
 
-    public TreeNode getLeft() {
+    public TreeNode<T> getLeft() {
         return left;
     }
 
-    public TreeNode getRight() {
+    public TreeNode<T> getRight() {
         return right;
     }
 }

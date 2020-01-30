@@ -10,7 +10,7 @@
     <url>https://github.com/rochakgupta/programming-practice</url>
 
     <properties>
-        <javac.version>1.8</javac.version>
+        <javac.version>9</javac.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>

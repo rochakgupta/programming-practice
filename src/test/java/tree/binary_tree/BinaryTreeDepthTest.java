@@ -8,17 +8,31 @@ public class BinaryTreeDepthTest {
 
     @Test
     public void test() {
-        TreeNode root = TreeNode.data(1)
-                                .left(TreeNode.data(2)
-                                              .left(TreeNode.data(12)
-                                                            .left(TreeNode.data(13))))
-                                .right(TreeNode.data(3)
-                                               .left(TreeNode.data(4)
-                                                             .left(TreeNode.data(6)))
-                                               .right(TreeNode.data(5)
-                                                              .left(TreeNode.data(7))));
+        TreeNode<Integer> root = new TreeNode<>(1);
+
+        TreeNode<Integer> left = new TreeNode<>(2);
+        TreeNode<Integer> right = new TreeNode<>(3);
+        root.setLeft(left);
+        root.setRight(right);
+
+        TreeNode<Integer> leftLeft = new TreeNode<>(12);
+        TreeNode<Integer> rightLeft = new TreeNode<>(4);
+        TreeNode<Integer> rightRight = new TreeNode<>(5);
+        left.setLeft(leftLeft);
+        right.setLeft(rightLeft);
+        right.setRight(rightRight);
+
+        TreeNode<Integer> leftLeftLeft = new TreeNode<>(13);
+        TreeNode<Integer> rightLeftLeft = new TreeNode<>(6);
+        TreeNode<Integer> rightRightLeft = new TreeNode<>(7);
+        leftLeft.setLeft(leftLeftLeft);
+        rightLeft.setLeft(rightLeftLeft);
+        rightRight.setLeft(rightRightLeft);
+
+        BinaryTreeDepth<Integer> solver = new BinaryTreeDepth<>();
+
         int expected = 3;
-        int obtained = BinaryTreeDepth.solve(root);
+        int obtained = solver.solve(root);
         Assert.assertEquals(expected, obtained);
     }
 }

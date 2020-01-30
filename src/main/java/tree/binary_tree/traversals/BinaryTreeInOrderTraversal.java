@@ -6,13 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class BinaryTreeInOrderTraversal {
+public class BinaryTreeInOrderTraversal<T> {
 
-    public static List<Integer> solveRecursively(TreeNode root) {
-        List<Integer> inOrderTraversal = new ArrayList<>();
+    public List<T> solveRecursively(TreeNode<T> root) {
+        List<T> inOrderTraversal = new ArrayList<>();
         if (root != null) {
-            List<Integer> left = solveRecursively(root.getLeft());
-            List<Integer> right = solveRecursively(root.getRight());
+            List<T> left = solveRecursively(root.getLeft());
+            List<T> right = solveRecursively(root.getRight());
             inOrderTraversal.addAll(left);
             inOrderTraversal.add(root.getData());
             inOrderTraversal.addAll(right);
@@ -20,10 +20,10 @@ public class BinaryTreeInOrderTraversal {
         return inOrderTraversal;
     }
 
-    public static List<Integer> solveIteratively(TreeNode root) {
-        List<Integer> inOrderTraversal = new ArrayList<>();
-        Stack<TreeNode> stack = new Stack<>();
-        TreeNode currentNode = root;
+    public List<T> solveIteratively(TreeNode<T> root) {
+        List<T> inOrderTraversal = new ArrayList<>();
+        Stack<TreeNode<T>> stack = new Stack<>();
+        TreeNode<T> currentNode = root;
         while (currentNode != null || !stack.isEmpty()) {
             while (currentNode != null) {
                 stack.push(currentNode);

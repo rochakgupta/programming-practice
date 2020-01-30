@@ -7,24 +7,24 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
-public class BinaryTreeZigzagLevelOrderTraversal {
+public class BinaryTreeZigzagLevelOrderTraversal<T> {
 
-    public static List<List<Integer>> solve(TreeNode root) {
+    public List<List<T>> solve(TreeNode<T> root) {
         if (root == null) {
             return Collections.emptyList();
         }
-        List<List<Integer>> zigzagLevelOrderTraversal = new ArrayList<>();
-        Stack<TreeNode> currentLevelStack = new Stack<>();
+        List<List<T>> zigzagLevelOrderTraversal = new ArrayList<>();
+        Stack<TreeNode<T>> currentLevelStack = new Stack<>();
         currentLevelStack.add(root);
         int currentLevel = 1;
         while (!currentLevelStack.isEmpty()) {
-            List<Integer> nodesInCurrentLevel = new ArrayList<>();
-            Stack<TreeNode> nextLevelStack = new Stack<>();
+            List<T> nodesInCurrentLevel = new ArrayList<>();
+            Stack<TreeNode<T>> nextLevelStack = new Stack<>();
             while (!currentLevelStack.isEmpty()) {
-                TreeNode node = currentLevelStack.pop();
+                TreeNode<T> node = currentLevelStack.pop();
                 nodesInCurrentLevel.add(node.getData());
-                TreeNode left = node.getLeft();
-                TreeNode right = node.getRight();
+                TreeNode<T> left = node.getLeft();
+                TreeNode<T> right = node.getRight();
                 if (currentLevel % 2 == 1) {
                     if (left != null) {
                         nextLevelStack.push(left);

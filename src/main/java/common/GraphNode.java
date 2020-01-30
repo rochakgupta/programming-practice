@@ -3,26 +3,26 @@ package common;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GraphNode {
+public class GraphNode<T> {
 
-    private Integer data;
+    private T data;
 
-    private List<GraphEdge> neighbors;
+    private List<GraphEdge<T>> neighbors;
 
-    private GraphNode(Integer data) {
+    private GraphNode(T data) {
         this.data = data;
         neighbors = new ArrayList<>();
     }
 
-    public Integer getData() {
+    public T getData() {
         return data;
     }
 
-    public List<GraphEdge> getNeighbors() {
+    public List<GraphEdge<T>> getNeighbors() {
         return neighbors;
     }
 
-    private void addNeighbor(GraphEdge edge) {
+    private void addNeighbor(GraphEdge<T> edge) {
         neighbors.add(edge);
     }
 }

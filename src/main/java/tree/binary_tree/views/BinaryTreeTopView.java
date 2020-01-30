@@ -8,10 +8,10 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
 
-public class BinaryTreeTopView {
+public class BinaryTreeTopView<T> {
 
-    public static List<Integer> solve(TreeNode root) {
-        SortedMap<Integer, Pair<Integer, Integer>> topView = new TreeMap<>();
+    public List<T> solve(TreeNode<T> root) {
+        SortedMap<Integer, Pair<Integer, T>> topView = new TreeMap<>();
         helper(root, 0, 0, topView);
         return topView.values()
                       .stream()
@@ -19,10 +19,10 @@ public class BinaryTreeTopView {
                       .collect(Collectors.toList());
     }
 
-    private static void helper(TreeNode node, int x, int y,
-                               SortedMap<Integer, Pair<Integer, Integer>> topView) {
+    private void helper(TreeNode<T> node, int x, int y,
+                        SortedMap<Integer, Pair<Integer, T>> topView) {
         if (node != null) {
-            Pair<Integer, Integer> pair = topView.get(x);
+            Pair<Integer, T> pair = topView.get(x);
             if (pair == null || y < pair.getFirst()) {
                 topView.put(x, new Pair<>(y, node.getData()));
             }
